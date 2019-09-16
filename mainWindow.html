@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>0 Cookies - IDLE GAME</title>
+    <link rel="shortcut icon" href="https://cdn.glitch.com/0144ea9d-b396-4915-ac2e-16e966da4cb7%2FCookie-PNG-Image-74969.png?1552494132354">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>  
+  <body>
+    <p><button onmousedown="Click()">Click Me!</button></p>
+    <p>Cookies: <span id="cookies">0</span></p>
+    <p>CPS: <span id="cps">0</span></p>
+    <p><button onclick="buyClickUpgrade()">Buy Click Upgrade</button></p>
+    <p>Upgrade Level: <span id="ClickUpgradelvl">0</span></p>
+	<p>Upgrade Cost: <span id="ClickUpgradeCost">100</span></p>
+    <p><button onclick="buyCursor()">Buy Cursor</button></p>
+	<p>Cursors: <span id="cursors">0</span></p>
+	<p>Cursor Cost: <span id="cursorCost">15</span></p>
+    <p><button onclick="buyGrandma()">Buy Grandma</button></p>
+    <p>Grandmas: <span id="grandmas">0</span></p>
+    <p>Grandma Cost: <span id="grandmaCost">100</span></p>
+    <p><button onclick="buyFarm()">Buy Farm</button></p>
+    <p>Farms: <span id="farms">0</span></p>
+    <p>Farm Cost: <span id="farmCost">1100</span></p>
+    <p><button onclick="buyMine()">Buy Mine</button></p>
+    <p>Mines: <span id="mines">0</span></p>
+    <p>Mine Cost: <span id="mineCost">12000</span></p>
+    <p><button onclick="buyFactory()">Buy Factory</button></p>
+    <p>Factories: <span id="factories">0</span></p>
+    <p>Factory Cost: <span id="factoryCost">130000</span></p>
+    <p><button onclick="buyBank()">Buy Bank</button></p>
+    <p>Banks: <span id="banks">0</span></p>
+    <p>Bank Cost: <span id="bankCost">1400000</span></p>
+    <p><button onclick="buyTemple()">Buy Temple</button></p>
+    <p>Temples: <span id="temples">0</span></p>
+    <p>Temple Cost: <span id="templeCost">20000000</span></p>
+    <p><button onclick="buyTower()">Buy Wizard Tower</button></p>
+    <p>Wizard Towers: <span id="towers">0</span></p>
+    <p>Wizard Tower Cost: <span id="towerCost">330000000</span></p>
+    <p><button onclick="buyShipment()">Buy Shipment</button></p>
+    <p>Shipments: <span id="shipments">0</span></p>
+    <p>Shipment Cost: <span id="shipmentCost">5100000000</span></p>
+    <p><button onclick="buyLab()">Buy Alchemy Lab</button></p>
+    <p>Alchemy Labs: <span id="labs">0</span></p>
+    <p>Alchemy Lab Cost: <span id="labCost">75000000000</span></p>
+    <p><button onclick="buyPortal()">Buy Portal</button></p>
+    <p>Portals: <span id="portals">0</span></p>
+    <p>Portal Cost: <span id="portalCost">1000000000000</span></p>
+    <p><button onclick="buyMachine()">Buy Time Machine</button></p>
+    <p>Time Machines: <span id="machines">0</span></p>
+    <p>Time Machine Cost: <span id="machineCost">14000000000000</span></p>
+    <p><button onclick="buyAntimatter()">Buy Antimatter Condenser</button></p>
+    <p>Antimatter Condensers: <span id="antimatters">0</span></p>
+    <p>Antimatter Condenser Cost: <span id="antimatterCost">170000000000000</span></p>
+    <p><button onclick="buyPrism()">Buy Prism</button></p>
+    <p>Prisms: <span id="prisms">0</span></p>
+    <p>Prism Cost: <span id="prismCost">2100000000000000</span></p>
+    <p><button onclick="buyChancemaker()">Buy Chancemaker</button></p>
+    <p>Chancemakers: <span id="chancemakers">0</span></p>
+    <p>Chancemaker Cost: <span id="chancemakerCost">26000000000000000</span></p>
+    <p><button onclick="buyEngine()">Buy Fractal Engine</button></p>
+    <p>Fractal Engines: <span id="engines">0</span></p>
+    <p>Fractal Engine Cost: <span id="engineCost">360000000000000000</span></p>
+    <p><button onclick="remove()">Delete Save</button></p>
+    <script>
+        window.onload=load;
+
+var cookies = 0; ; // COOKIES //
+
+var title = 'IDLE GAME';
+
+// CLICK UPGRADES FUNCTION //
+
+function Click(){
+  if (ClickUpgrades == 0){
+  cookie(1);
+  }
+  else if(ClickUpgrades == 1){
+    cookie(2);
+  }
+  else if (ClickUpgrades == 2){
+    cookie(3);
+  }
+  else if (ClickUpgrades == 3){
+    cookie(4);
+  }
+  else if (ClickUpgrades == 4){
+    cookie(5);
+  }
+  else if (ClickUpgrades == 5){
+    cookie(6);
+  }
+  else if (ClickUpgrades == 6){
+    cookie(7);
+  }
+  else if (ClickUpgrades == 7){
+    cookie(8);
+  }
+  else if (ClickUpgrades == 8){
+    cookie(9);
+  }
+  else if (ClickUpgrades == 9){
+    cookie(10);
+  }
+  else if (ClickUpgrades == 10){
+    cookie(100);
+    var ClickUpgradesnextcost = 'MAX OWNED';
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+  }
+};
+
+// COOKIE CLICK FUNCTION //
+
+function cookie(number){
+    cookies = cookies + number;
+    document.getElementById("cookies").innerHTML = Math.trunc(cookies);
+    document.title= Math.trunc(cookies) +' Cookies '+' - '+ title;
+};
+
+// REMOVES LONG DECIMAL NUMBERS //
+
+function prettify(input){
+    var output = Math.round(input * 1000000)/1000000;
+	return output;
+};
+
+// BUILDINGS //
+
+var cursors = 0;
+
+function buyCursor(){
+    var cursorCost = Math.floor(15 * Math.pow(1.15,cursors));
+    if(cookies >= cursorCost){
+        cursors = cursors + 1;
+    	cookies = cookies - cursorCost;
+        document.getElementById('cursors').innerHTML = cursors;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Cursornextcost = Math.floor(15 * Math.pow(1.15,cursors));
+    document.getElementById('cursorCost').innerHTML = Cursornextcost;
+};
+
+var grandmas = 0
+
+function buyGrandma(){
+    var GrandmaCost = Math.floor(100 * Math.pow(1.15,grandmas));
+    if(cookies >= GrandmaCost){
+        grandmas = grandmas + 1;
+    	cookies = cookies - GrandmaCost;
+        document.getElementById('grandmas').innerHTML = grandmas;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Grandmasnextcost = Math.floor(100 * Math.pow(1.15,grandmas));
+    document.getElementById('grandmaCost').innerHTML = Grandmasnextcost;
+};
+
+var farms = 0;
+
+function buyFarm(){
+    var FarmCost = Math.floor(1100 * Math.pow(1.15,farms));
+    if(cookies >= FarmCost){
+        farms = farms + 1;
+    	cookies = cookies - FarmCost;
+        document.getElementById('farms').innerHTML = farms;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Farmsnextcost = Math.floor(1100 * Math.pow(1.15,farms));
+    document.getElementById('farmCost').innerHTML = Farmsnextcost;
+};
+
+
+var mines = 0;
+
+function buyMine(){
+    var MineCost = Math.floor(12000 * Math.pow(1.15,mines));
+    if(cookies >= MineCost){
+        mines = mines + 1;
+    	cookies = cookies - MineCost;
+        document.getElementById('mines').innerHTML = mines;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Minesnextcost = Math.floor(12000 * Math.pow(1.15,mines));
+    document.getElementById('mineCost').innerHTML = Minesnextcost;
+};
+
+
+var factories = 0;
+
+function buyFactory(){
+    var FactoryCost = Math.floor(130000 * Math.pow(1.15,factories));
+    if(cookies >= FactoryCost){
+        factories = factories + 1;
+    	cookies = cookies - FactoryCost;
+        document.getElementById('factories').innerHTML = factories;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Factoriesnextcost = Math.floor(130000 * Math.pow(1.15,factories));
+    document.getElementById('factoryCost').innerHTML = Factoriesnextcost;
+};
+
+var banks = 0;
+
+function buyBank(){
+    var BankCost = Math.floor(1400000 * Math.pow(1.15,banks));
+    if(cookies >= BankCost){
+        banks = banks + 1;
+    	cookies = cookies - BankCost;
+        document.getElementById('banks').innerHTML = banks;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Banksnextcost = Math.floor(1400000 * Math.pow(1.15,banks));
+    document.getElementById('bankCost').innerHTML = Banksnextcost;
+};
+
+var temples = 0;
+
+function buyTemple(){
+    var TempleCost = Math.floor(20000000 * Math.pow(1.15,temples));
+    if(cookies >= TempleCost){
+        temples = temples + 1;
+    	cookies = cookies - TempleCost;
+        document.getElementById('temples').innerHTML = temples;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Templesnextcost = Math.floor(20000000 * Math.pow(1.15,temples));
+    document.getElementById('templeCost').innerHTML = Templesnextcost;
+};
+
+var towers = 0;
+
+function buyTower(){
+    var TowerCost = Math.floor(330000000 * Math.pow(1.15,towers));
+    if(cookies >= TowerCost){
+        towers = towers + 1;
+    	cookies = cookies - TowerCost;
+        document.getElementById('towers').innerHTML = towers;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Towersnextcost = Math.floor(330000000 * Math.pow(1.15,towers));
+    document.getElementById('towerCost').innerHTML = Towersnextcost;
+};
+
+var shipments = 0;
+
+function buyShipment(){
+    var ShipmentCost = Math.floor(5100000000 * Math.pow(1.15,shipments));
+    if(cookies >= ShipmentCost){
+        shipments = shipments + 1;
+    	cookies = cookies - ShipmentCost;
+        document.getElementById('shipments').innerHTML = shipments;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Shipmentsnextcost = Math.floor(5100000000 * Math.pow(1.15,shipments));
+    document.getElementById('shipmentCost').innerHTML = Shipmentsnextcost;
+};
+
+var labs = 0;
+
+function buyLab(){
+    var LabCost = Math.floor(75000000000 * Math.pow(1.15,labs));
+    if(cookies >= LabCost){
+        labs = labs + 1;
+    	cookies = cookies - LabCost;
+        document.getElementById('labs').innerHTML = labs;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Labsnextcost = Math.floor(75000000000 * Math.pow(1.15,labs));
+    document.getElementById('labCost').innerHTML = Labsnextcost;
+};
+
+var portals = 0;
+
+function buyPortal(){
+    var PortalCost = Math.floor(1000000000000 * Math.pow(1.15,portals));
+    if(cookies >= PortalCost){
+        portals = portals + 1;
+    	cookies = cookies - PortalCost;
+        document.getElementById('portals').innerHTML = portals;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Portalsnextcost = Math.floor(1000000000000 * Math.pow(1.15,portals));
+    document.getElementById('portalCost').innerHTML = Portalsnextcost;
+};
+
+var machines = 0;
+
+function buyMachine(){
+    var MachineCost = Math.floor(14000000000000 * Math.pow(1.15,machines));
+    if(cookies >= MachineCost){
+        machines = machines + 1;
+    	cookies = cookies - MachineCost;
+        document.getElementById('machines').innerHTML = machines;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Machinesnextcost = Math.floor(14000000000000 * Math.pow(1.15,machines));
+    document.getElementById('machineCost').innerHTML = Machinesnextcost;
+};
+
+var antimatters = 0;
+
+function buyAntimatter(){
+    var AntimatterCost = Math.floor(170000000000000 * Math.pow(1.15,antimatters));
+    if(cookies >= AntimatterCost){
+        antimatters = antimatters + 1;
+    	cookies = cookies - AntimatterCost;
+        document.getElementById('antimatters').innerHTML = antimatters;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Antimattersnextcost = Math.floor(170000000000000 * Math.pow(1.15,antimatters));
+    document.getElementById('antimatterCost').innerHTML = Antimattersnextcost;
+};
+
+var prisms = 0;
+
+function buyPrism(){
+    var PrismCost = Math.floor(2100000000000000 * Math.pow(1.15,prisms));
+    if(cookies >= PrismCost){
+        prisms = prisms + 1;
+    	cookies = cookies - PrismCost;
+        document.getElementById('prisms').innerHTML = prisms;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Prismsnextcost = Math.floor(2100000000000000 * Math.pow(1.15,prisms));
+    document.getElementById('prismCost').innerHTML = Prismsnextcost;
+};
+
+var chancemakers = 0;
+
+function buyChancemaker(){
+    var ChancemakerCost = Math.floor(26000000000000000 * Math.pow(1.15,chancemakers));
+    if(cookies >= ChancemakerCost){
+        chancemakers = chancemakers + 1;
+    	cookies = cookies - ChancemakerCost;
+        document.getElementById('chancemakers').innerHTML = chancemakers;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Chancemakersnextcost = Math.floor(26000000000000000 * Math.pow(1.15,chancemakers));
+    document.getElementById('chancemakerCost').innerHTML = Chancemakersnextcost;
+};
+
+var engines = 0;
+
+function buyEngine(){
+    var EngineCost = Math.floor(360000000000000000 * Math.pow(1.15,engines));
+    if(cookies >= EngineCost){
+        engines = engines + 1;
+    	cookies = cookies - EngineCost;
+        document.getElementById('engines').innerHTML = engines;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    var Enginesnextcost = Math.floor(360000000000000000 * Math.pow(1.15,engines));
+    document.getElementById('engineCost').innerHTML = Enginesnextcost;
+};
+
+// CLICK UPGRADES //
+
+var ClickUpgrades = 0;
+
+function buyClickUpgrade(){
+  if (ClickUpgrades == 9){
+    var ClickUpgradeCost = 1000000000000;
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradeCost;
+    if(cookies >= ClickUpgradeCost){
+        ClickUpgrades = ClickUpgrades + 1;
+    	cookies = cookies - ClickUpgradeCost;
+        var ClickUpgradesnextcost = 'MAX OWNED';
+        document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+    };
+    if (ClickUpgrades == 10){
+      var ClickUpgradesnextcost = 'MAX OWNED';
+      document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+  }
+  }
+  else if (ClickUpgrades >= 10){
+    var ClickUpgradesnextcost = 'MAX OWNED';
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+  }
+  else {
+    var ClickUpgradeCost = Math.floor(100 * Math.pow(10,ClickUpgrades));
+    if(cookies >= ClickUpgradeCost){
+        ClickUpgrades = ClickUpgrades + 1;
+    	cookies = cookies - ClickUpgradeCost;
+        document.getElementById('ClickUpgradelvl').innerHTML = ClickUpgrades;
+        document.getElementById('cookies').innerHTML = Math.trunc(cookies);
+    };
+    if (ClickUpgrades == 9){
+    var ClickUpgradeCost = 1000000000000;
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradeCost;
+    }
+    else {
+    var ClickUpgradesnextcost = Math.floor(100 * Math.pow(10,ClickUpgrades));
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+    }
+  }
+};
+// BUILD UPGRADES (NEXT UPDATE) //
+
+// DEBUG FUNCTION //
+
+function RuinTheFun(){
+  cookies += 1000000000000;
+};
+
+// SAVE FUNCTION //
+
+function save() {
+
+var save = {
+    cookies: prettify(cookies),
+    cursors: cursors,
+    grandmas: grandmas,
+    farms: farms,
+    mines: mines,
+    factories: factories,
+    banks: banks,
+    temples: temples,
+    towers: towers,
+    shipments: shipments,
+    labs: labs,
+    portals: portals,
+    machines: machines,
+    antimatters: antimatters,
+    prisms: prisms,
+    chancemakers: chancemakers,
+    engines: engines,
+    ClickUpgrades: ClickUpgrades,
+}
+
+localStorage.setItem("save",JSON.stringify(save));
+  
+};
+
+// LOAD FUNCTION //
+
+function load() {
+  
+  
+  var savegame = JSON.parse(localStorage.getItem("save"));
+  
+  if (typeof savegame.cookies !== "undefined") cookies = savegame.cookies;
+  if (typeof savegame.cursors !== "undefined") cursors = savegame.cursors;
+  if (typeof savegame.grandmas !== "undefined") grandmas = savegame.grandmas;
+  if (typeof savegame.farms !== "undefined") farms = savegame.farms;
+  if (typeof savegame.mines !== "undefined") mines = savegame.mines;
+  if (typeof savegame.factories !== "undefined") factories = savegame.factories;
+  if (typeof savegame.banks !== "undefined") banks = savegame.banks;
+  if (typeof savegame.temples !== "undefined") temples = savegame.temples;
+  if (typeof savegame.towers !== "undefined") towers = savegame.towers;
+  if (typeof savegame.shipments !== "undefined") shipments = savegame.shipments;
+  if (typeof savegame.labs !== "undefined") labs = savegame.labs;
+  if (typeof savegame.portals !== "undefined") portals = savegame.portals;
+  if (typeof savegame.machines !== "undefined") machines = savegame.machines;
+  if (typeof savegame.antimatters !== "undefined") antimatters = savegame.antimatters;
+  if (typeof savegame.prisms !== "undefined") prisms = savegame.prisms;
+  if (typeof savegame.chancemakers !== "undefined") chancemakers = savegame.chancemakers;
+  if (typeof savegame.engines !== "undefined") engines = savegame.engines;
+  if (typeof savegame.ClickUpgrades !== "undefined") ClickUpgrades = savegame.ClickUpgrades;
+  
+  document.getElementById("cookies").innerHTML = Math.trunc(cookies);
+  document.getElementById("cursors").innerHTML = cursors;
+  document.getElementById("grandmas").innerHTML = grandmas;
+  document.getElementById("farms").innerHTML = farms;
+  document.getElementById("mines").innerHTML = mines;
+  document.getElementById("factories").innerHTML = factories;
+  document.getElementById("banks").innerHTML = banks;
+  document.getElementById("temples").innerHTML = temples;
+  document.getElementById("towers").innerHTML = towers;
+  document.getElementById("shipments").innerHTML = shipments;
+  document.getElementById("labs").innerHTML = labs;
+  document.getElementById("portals").innerHTML = portals;
+  document.getElementById("machines").innerHTML = machines;
+  document.getElementById("antimatters").innerHTML = antimatters;
+  document.getElementById("prisms").innerHTML = prisms;
+  document.getElementById("chancemakers").innerHTML = chancemakers;
+  document.getElementById("engines").innerHTML = engines;
+  document.getElementById("ClickUpgradelvl").innerHTML = ClickUpgrades;
+  
+  var Cursornextcost = Math.floor(15 * Math.pow(1.15, cursors));
+  document.getElementById("cursorCost").innerHTML = Cursornextcost;
+  
+  var Grandmasnextcost = Math.floor(100 * Math.pow(1.15,grandmas));
+    document.getElementById('grandmaCost').innerHTML = Grandmasnextcost;
+  
+  var Farmsnextcost = Math.floor(1100 * Math.pow(1.15,farms));
+    document.getElementById('farmCost').innerHTML = Farmsnextcost;
+  
+  var Minesnextcost = Math.floor(12000 * Math.pow(1.15,mines));
+    document.getElementById('mineCost').innerHTML = Minesnextcost;
+  
+  var Factoriesnextcost = Math.floor(130000 * Math.pow(1.15,factories));
+    document.getElementById('factoryCost').innerHTML = Factoriesnextcost;
+  
+  var Banksnextcost = Math.floor(1400000 * Math.pow(1.15,banks));
+    document.getElementById('bankCost').innerHTML = Banksnextcost;
+  
+  var Templesnextcost = Math.floor(20000000 * Math.pow(1.15,temples));
+    document.getElementById('templeCost').innerHTML = Templesnextcost;
+  
+  var Towersnextcost = Math.floor(330000000 * Math.pow(1.15,towers));
+    document.getElementById('towerCost').innerHTML = Towersnextcost;
+  
+  var Shipmentsnextcost = Math.floor(5100000000 * Math.pow(1.15,shipments));
+    document.getElementById('shipmentCost').innerHTML = Shipmentsnextcost;
+  
+  var Labsnextcost = Math.floor(75000000000 * Math.pow(1.15,labs));
+    document.getElementById('labCost').innerHTML = Labsnextcost;
+  
+  var Portalsnextcost = Math.floor(1000000000000 * Math.pow(1.15,portals));
+    document.getElementById('portalCost').innerHTML = Portalsnextcost;
+  
+  var Machinesnextcost = Math.floor(14000000000000 * Math.pow(1.15,machines));
+    document.getElementById('machineCost').innerHTML = Machinesnextcost;
+  
+  var Antimattersnextcost = Math.floor(170000000000000 * Math.pow(1.15,antimatters));
+    document.getElementById('antimatterCost').innerHTML = Antimattersnextcost;
+  
+  var Prismsnextcost = Math.floor(2100000000000000 * Math.pow(1.15,prisms));
+    document.getElementById('prismCost').innerHTML = Prismsnextcost;
+  
+  var Chancemakersnextcost = Math.floor(26000000000000000 * Math.pow(1.15,chancemakers));
+    document.getElementById('chancemakerCost').innerHTML = Chancemakersnextcost;
+  
+  var Enginesnextcost = Math.floor(360000000000000000 * Math.pow(1.15,engines));
+    document.getElementById('engineCost').innerHTML = Enginesnextcost;
+  
+  if (ClickUpgrades == 9){
+    var ClickUpgradeCost = 1000000000000;
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradeCost;
+  }
+  else if (ClickUpgrades >= 10){
+    var ClickUpgradesnextcost = 'MAX OWNED';
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+  }
+  else {
+  var ClickUpgradesnextcost = Math.floor(100 * Math.pow(10,ClickUpgrades));
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+  }
+  
+  document.title= Math.trunc(cookies) +' Cookies '+' - '+ title;
+  
+};
+  
+// DELETE SAVE FUNCTION //
+
+function remove() {
+  if (confirm('Are you sure you want to delete your save? This cannot be undone. \n \nNote: This will also reset your work!')){
+  localStorage.removeItem("save");
+  cookies = 0;
+  cursors = 0;
+  grandmas = 0;
+  farms = 0;
+  mines = 0;
+  factories = 0;
+  banks = 0;
+  temples = 0;
+  towers = 0;
+  shipments = 0;
+  labs = 0;
+  portals = 0;
+  machines = 0;
+  antimatters = 0;
+  prisms = 0;
+  chancemakers = 0;
+  engines = 0;
+  ClickUpgrades = 0;
+  document.location.reload();
+  }
+};
+
+// UPDATING VARIABLES IN HTML //
+
+window.setInterval(function(){
+  
+  document.getElementById("cookies").innerHTML = Math.trunc(cookies);
+  document.getElementById("cursors").innerHTML = cursors;
+  document.getElementById("grandmas").innerHTML = grandmas;
+  document.getElementById("farms").innerHTML = farms;
+  document.getElementById("mines").innerHTML = mines;
+  document.getElementById("factories").innerHTML = factories;
+  document.getElementById("banks").innerHTML = banks;
+  document.getElementById("temples").innerHTML = temples;
+  document.getElementById("towers").innerHTML = towers;
+  document.getElementById("shipments").innerHTML = shipments;
+  document.getElementById("labs").innerHTML = labs;
+  document.getElementById("portals").innerHTML = portals;
+  document.getElementById("machines").innerHTML = machines;
+  document.getElementById("antimatters").innerHTML = antimatters;
+  document.getElementById("prisms").innerHTML = prisms;
+  document.getElementById("chancemakers").innerHTML = chancemakers;
+  document.getElementById("engines").innerHTML = engines;
+  document.getElementById("ClickUpgradelvl").innerHTML = ClickUpgrades;
+  
+  var Cursornextcost = Math.floor(15 * Math.pow(1.15, cursors));
+  document.getElementById("cursorCost").innerHTML = Cursornextcost;
+  
+  var Grandmasnextcost = Math.floor(100 * Math.pow(1.15,grandmas));
+    document.getElementById('grandmaCost').innerHTML = Grandmasnextcost;
+  
+  var Farmsnextcost = Math.floor(1100 * Math.pow(1.15,farms));
+    document.getElementById('farmCost').innerHTML = Farmsnextcost;
+  
+  var Minesnextcost = Math.floor(12000 * Math.pow(1.15,mines));
+    document.getElementById('mineCost').innerHTML = Minesnextcost;
+  
+  var Factoriesnextcost = Math.floor(130000 * Math.pow(1.15,factories));
+    document.getElementById('factoryCost').innerHTML = Factoriesnextcost;
+  
+  var Banksnextcost = Math.floor(1400000 * Math.pow(1.15,banks));
+    document.getElementById('bankCost').innerHTML = Banksnextcost;
+  
+  var Templesnextcost = Math.floor(20000000 * Math.pow(1.15,temples));
+    document.getElementById('templeCost').innerHTML = Templesnextcost;
+  
+  var Towersnextcost = Math.floor(330000000 * Math.pow(1.15,towers));
+    document.getElementById('towerCost').innerHTML = Towersnextcost;
+  
+  var Shipmentsnextcost = Math.floor(5100000000 * Math.pow(1.15,shipments));
+    document.getElementById('shipmentCost').innerHTML = Shipmentsnextcost;
+  
+  var Labsnextcost = Math.floor(75000000000 * Math.pow(1.15,labs));
+    document.getElementById('labCost').innerHTML = Labsnextcost;
+  
+  var Portalsnextcost = Math.floor(1000000000000 * Math.pow(1.15,portals));
+    document.getElementById('portalCost').innerHTML = Portalsnextcost;
+  
+  var Machinesnextcost = Math.floor(14000000000000 * Math.pow(1.15,machines));
+    document.getElementById('machineCost').innerHTML = Machinesnextcost;
+  
+  var Antimattersnextcost = Math.floor(170000000000000 * Math.pow(1.15,antimatters));
+    document.getElementById('antimatterCost').innerHTML = Antimattersnextcost;
+  
+  var Prismsnextcost = Math.floor(2100000000000000 * Math.pow(1.15,prisms));
+    document.getElementById('prismCost').innerHTML = Prismsnextcost;
+  
+  var Chancemakersnextcost = Math.floor(26000000000000000 * Math.pow(1.15,chancemakers));
+    document.getElementById('chancemakerCost').innerHTML = Chancemakersnextcost;
+  
+  var Enginesnextcost = Math.floor(360000000000000000 * Math.pow(1.15,engines));
+    document.getElementById('engineCost').innerHTML = Enginesnextcost;
+  
+  if (ClickUpgrades == 9){
+    var ClickUpgradeCost = 1000000000000;
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradeCost;
+  }
+  else if (ClickUpgrades >= 10){
+    var ClickUpgradesnextcost = 'MAX OWNED';
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+  }
+  else {
+  var ClickUpgradesnextcost = Math.floor(100 * Math.pow(10,ClickUpgrades));
+    document.getElementById('ClickUpgradeCost').innerHTML = ClickUpgradesnextcost;
+  }
+  
+}, 500);
+
+
+// CURSORS INTERVAL FUNCTION //
+
+window.setInterval(function(){
+  
+  cookie(cursors * 0.1);
+  if (cursors >= 1){
+    cookie(1);
+  }
+  
+}, 10000);
+
+// CPS AND OTHER BUILDINGS INTERVAL FUNCTION //
+
+window.setInterval(function(){
+  
+  var Auto = grandmas + (farms * 8) + (mines * 47) + (factories * 260) + (banks * 1400) + (temples * 7800) + (towers * 44000) + (shipments * 260000) + (labs * 1600000) + (portals * 10000000) + (machines * 65000000) + (antimatters * 430000000) + (prisms * 2900000000) + (chancemakers * 21000000000) + (engines * 150000000000);
+	
+  var CPS = (cursors * 0.1) + Auto;
+  
+  document.getElementById("cps").innerHTML = prettify(CPS);
+  
+  cookie(Auto);
+  
+  if (cookies > 0){
+  
+  save();
+    
+  }
+  
+  document.getElementById("cursors").innerHTML = cursors;
+  document.getElementById("grandmas").innerHTML = grandmas;
+  document.getElementById("farms").innerHTML = farms;
+  document.getElementById("mines").innerHTML = mines;
+  document.getElementById("factories").innerHTML = factories;
+  document.getElementById("banks").innerHTML = banks;
+  document.getElementById("temples").innerHTML = temples;
+  document.getElementById("towers").innerHTML = towers;
+  document.getElementById("shipments").innerHTML = shipments;
+  document.getElementById("labs").innerHTML = labs;
+  document.getElementById("portals").innerHTML = portals;
+  document.getElementById("machines").innerHTML = machines;
+  document.getElementById("antimatters").innerHTML = antimatters;
+  document.getElementById("prisms").innerHTML = prisms;
+  document.getElementById("chancemakers").innerHTML = chancemakers;
+  document.getElementById("engines").innerHTML = engines;
+  document.getElementById("ClickUpgradelvl").innerHTML = ClickUpgrades;
+	
+}, 1000);
+    </script>
+  </body>
+</html>
