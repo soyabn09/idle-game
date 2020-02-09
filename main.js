@@ -27,7 +27,7 @@ app.on('ready', function() {
 const mainMenuTemplate = [
     {
         label: 'Quit',
-        accelerator: process.platform == 'darwain' ? 'Command+Q' :
+        accelerator: process.platform === 'darwin' ? 'Command+Q' :
         'Ctrl+Q',
         click(){
         app.quit();
@@ -35,7 +35,7 @@ const mainMenuTemplate = [
     }
 ];
 
-if (process.platform == 'darwin'){
+if (process.platform === 'darwin'){
     mainMenuTemplate.unshift({});
 }
 
@@ -45,7 +45,7 @@ if (DEVELOPER !== 0){
         submenu: [
             {
                 label: 'Toggle DevTools',
-                accelerator: process.platform == 'darwain' ? 'Command+I' :
+                accelerator: process.platform === 'darwin' ? 'Command+I' :
                 'Ctrl+I',
                 click(item, focusedWindow){
                     focusedWindow.toggleDevTools();
@@ -53,7 +53,7 @@ if (DEVELOPER !== 0){
             },
             {
                 label: 'Reload',
-                accelerator: process.platform == 'darwain' ? 'Command+F' :
+                accelerator: process.platform === 'darwin' ? 'Command+F' :
                 'Ctrl+F',
                 role: 'reload'
             }
