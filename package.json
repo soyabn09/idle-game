@@ -12,9 +12,9 @@
   "author": "Soyab Nandhla",
   "license": "MIT",
   "dependencies": {
-    "electron": "^6.0.9"
+    "electron": "^8.1.1"
   },
   "devDependencies": {
-    "electron-packager": "^14.0.6"
+    "electron-packager": "^14.2.1"
   }
 }
