@@ -8,3 +8,5 @@ patch:
         patched: '2021-05-04T02:08:48.376Z'
     - snyk > snyk-docker-plugin > snyk-nodejs-lockfile-parser > @yarnpkg/core > lodash:
         patched: '2021-05-04T02:08:48.376Z'
+    - electron > @electron/get > global-tunnel-ng > lodash:
+        patched: '2021-05-04T02:09:46.736Z'
