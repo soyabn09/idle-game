@@ -4,5 +4,7 @@ ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-567746:
-    - electron > @electron/get > global-tunnel-ng > lodash:
-        patched: '2021-05-04T02:07:53.020Z'
+    - snyk > snyk-nodejs-lockfile-parser > @yarnpkg/core > lodash:
+        patched: '2021-05-04T02:08:48.376Z'
+    - snyk > snyk-docker-plugin > snyk-nodejs-lockfile-parser > @yarnpkg/core > lodash:
+        patched: '2021-05-04T02:08:48.376Z'
